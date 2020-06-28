@@ -1,0 +1,41 @@
+<div class="container">
+    <h1 class="myfont">My Tasks</h1>
+    <hr>
+
+<form class="well" ng-submit="task.createTask(taskData)" >
+  <div class="row">
+  <div class="col-sm-8">
+    <div class="form-group">
+      <input type="text" ng-model="task.taskData.title"  name="title" class="form-control" placeholder="Add Task...">    
+    </div> 
+  </div>
+    <div class="col-sm-4">
+    <button class="btn btn-primary" type="submit" >Enter</button> 
+  </div>
+</div>
+</form>
+
+
+
+<div class="task-list">
+  <div class="row" ng-repeat="task1 in task.tasks" >
+
+      <div class="col-sm-1">
+          <input type="checkbox" >
+      </div>
+      <div class="col-sm-7"  >
+        {{task1.title}}
+      </div> 
+      <div class="col-sm-4">
+          <input type="button" ng-click="task.deleteTask(task1._id)" value="Delete" class="btn btn-danger">    
+      </div>
+      <br><br>
+  </div>
+</div>
+
+</div>
+
+
+
+
+

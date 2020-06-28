@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"  href="assets/css/bootstrap.min.css" >
+    <link rel="stylesheet"  href="assets/css/myownstyle.css">
+    <link rel="stylesheet"  href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" >
+    <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@1&display=swap" rel="stylesheet">
+
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+    
+
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/taskCtrl.js"></script>
+
+
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+
+
+
+
+    <title>Em'deeTee </title>
+  </head>
+  <body style="background-color: #ccf5ed7c;" ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+    <div class="container-fluid"  >
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #36413f7c;"  >
+      <a class="navbar-brand" href="#">
+        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" >
+         Em'deeTee 
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a ng-show="!main.isLoggedIn" class="nav-link" href="/login" >Login</a>
+          </li>
+          <li class="nav-item">
+            <a ng-show="!main.isLoggedIn" class="nav-link" href="/register" >Register</a>
+          </li>
+          <li class="nav-item">
+            <a  ng-show="main.isLoggedIn" class="nav-link" href="/task" >Task</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link" href="/about" >About</a>
+          </li>
+          <li class="nav-item">
+            <a ng-show="main.isLoggedIn" class="nav-link" href="#" ng-click="main.logout();"><i>Logout</i></a>
+          </li>
+          <li class="nav-item">
+            <a ng-show="main.isLoggedIn" class="nav-link" href="/profile" ><b>Hello {{main.username}}</b></a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          Mean Stack App for case study
+        </span>
+      </div>
+    </nav>
+  </div>
+
+  <div ng-view></div>
+
+
+  
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">{{main.modalHeader}}</h4>
+            <button type="button" ng-click="main.endSession()" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p>{{main.modalBody}}</p>
+            <div class="loader-section">
+              <div ng-show="main.hidebuttons" class="loader-box">
+                <span class="loader1"></span>
+                <span class="loader2"></span>
+                <span class="loader3"></span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" ng-click="main.renewSession()" ng-hide="main.hidebuttons" class="btn btn-primary" data-dismiss="modal">Yes</button>
+            <button type="button" ng-click="main.endSession()"  ng-hide="main.hidebuttons" class="btn btn-danger" data-dismiss="modal">No</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+
+
+  <footer class="footer mymargin navbar-light" style="background-color: #009986;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm">
+          <a class="navbar-brand" href="#">
+            <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            Em'deeTee
+          </a>
+        </div>
+        <div class="col-sm">
+          <h7 class="mytext">Made by Mohammed Talha</h7><br>
+          <h7 class="mytext">Made with <i>MEAN</i> and <i>Bootstrap</i>.</h7>
+
+        </div>
+        <div class="col-sm">
+          <h7 class="mytext">Md Talha   - md007.talha@gmail.com</h7><br>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
