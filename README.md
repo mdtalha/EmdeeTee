@@ -1,8 +1,8 @@
 # EmdeeTee
-Mean app with login and registration page with todolist as CRUD operations
+Mean app with login and registration page with todolist as CRUD operations.
 
-Made with Nodejs MongoDB Angular Express
-Styling with Bootstrap and Google fonts
+Made with Nodejs MongoDB Angular Express.
+Styling with Bootstrap and Google fonts.
 
 Projects has Login and Registration form with all backend and frontend validations and password encryption. 
 Also used jwt tokens for login sessions.
