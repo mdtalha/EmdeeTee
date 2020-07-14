@@ -1,4 +1,4 @@
-# EmdeeTee
+# EmdeeTee(FullStackApp)
 Mean app with login and registration page with todolist as CRUD operations.
 
 Made with Nodejs MongoDB Angular Express.
