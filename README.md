@@ -8,4 +8,4 @@ Projects has Login and Registration form with all backend and frontend validatio
 Also used jwt tokens for login sessions.
 Also has ToDoList as CRUD operations .
 
-Just "npm install" all modules and  then run server.js you are good to go
+Just "npm install" all modules and  then run server.js you are good to go.
